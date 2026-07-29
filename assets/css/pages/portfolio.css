@@ -1,0 +1,161 @@
+/* ========================================
+   PORTFOLIO.CSS - Gallery & Lightbox Styles
+   ======================================== */
+
+.portfolio-hero {
+  background: var(--gradient-hero);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-2xl);
+  
+  /* Sticky properties */
+  position: sticky;
+  top: 70px; /* Just below the navbar */
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1rem 0;
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-alt);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.filter-btn:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+/* CSS Columns for Masonry Layout */
+.portfolio-grid {
+  column-count: 1;
+  column-gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .portfolio-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    column-count: 3;
+    column-gap: var(--space-lg);
+  }
+}
+
+.portfolio-item {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  cursor: zoom-in;
+  transform: translateZ(0);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: block; /* For filtering logic */
+}
+
+@media (min-width: 1024px) {
+  .portfolio-item {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90vh;
+  transform: scale(0.9);
+  transition: transform var(--transition-normal);
+}
+
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  z-index: 10000;
+}
+
+.lightbox-close:hover {
+  color: var(--color-primary);
+}

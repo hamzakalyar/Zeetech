@@ -1,0 +1,108 @@
+/* ========================================
+   SUPPORT.CSS — Support Page Styles
+   FAQ, categories, emergency contact
+   ======================================== */
+
+.support-hero {
+  background: var(--gradient-hero);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+/* Support categories grid */
+.support-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+.support-cat-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.support-cat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+.support-cat-card i {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.support-cat-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.support-cat-card p {
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 768px) {
+  .support-categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .support-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Emergency contact banner */
+.emergency-banner {
+  background: var(--gradient-primary);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  color: var(--color-white);
+  text-align: center;
+  margin-top: var(--space-2xl);
+}
+
+.emergency-banner h3 {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.emergency-banner p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-md);
+}
+
+.emergency-contacts {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.emergency-contacts a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-whatsapp, #25D366);
+  color: var(--color-white);
+  padding: 12px 24px;
+  border-radius: var(--radius-full, 50px);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-md, 1rem);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.emergency-contacts a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}

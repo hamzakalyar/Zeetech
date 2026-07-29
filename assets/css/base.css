@@ -1,0 +1,259 @@
+/* ========================================
+   BASE.CSS — Design System Foundation
+   Reset, CSS Custom Properties, Typography
+   ======================================== */
+
+/* ----------------------------------------
+   1. CSS RESET
+   ---------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ----------------------------------------
+   2. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ---------------------------------------- */
+:root {
+  /* --- Brand Colors --- */
+  --color-primary: #0c5ca8;
+  --color-primary-dark: #094a86;
+  --color-primary-darker: #073a6b;
+  --color-primary-light: #e8f0fe;
+  --color-primary-rgb: 12, 92, 168;
+
+  /* --- Accent Colors --- */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #075e54;
+  --color-star: #ffc107;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* --- Neutral Colors --- */
+  --color-white: #ffffff;
+  --color-bg: #f9fafb;
+  --color-bg-alt: #f3f4f6;
+  --color-border: #e5e7eb;
+  --color-border-light: #f0f0f0;
+  --color-text: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+  --color-dark: #111827;
+  --color-dark-secondary: #1f2937;
+  --color-dark-muted: #374151;
+
+  /* --- Gradients --- */
+  --gradient-primary: linear-gradient(135deg, #0c5ca8 0%, #0e6bbd 100%);
+  --gradient-primary-reverse: linear-gradient(135deg, #0e6bbd 0%, #0c5ca8 100%);
+  --gradient-primary-wide: linear-gradient(95deg, #0c5ca8 0%, #0e6bbd 100%);
+  --gradient-offer: linear-gradient(135deg, #fef9e6 0%, #fff4e0 100%);
+  --gradient-hero: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+  --gradient-dark: linear-gradient(135deg, #0c5ca8, #0a4a82);
+
+  /* --- Spacing Scale --- */
+  --space-2xs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  --space-4xl: 6rem;      /* 96px */
+
+  /* --- Typography Scale --- */
+  --text-xs: 0.65rem;
+  --text-sm: 0.75rem;
+  --text-base: 0.85rem;
+  --text-md: 0.9rem;
+  --text-lg: 1rem;
+  --text-xl: 1.2rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.8rem;
+  --text-4xl: 2.2rem;
+  --text-5xl: 2.8rem;
+
+  /* --- Font Weights --- */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* --- Border Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+  --shadow-primary: 0 8px 20px rgba(12, 92, 168, 0.3);
+  --shadow-primary-lg: 0 12px 20px -8px rgba(12, 92, 168, 0.3);
+  --shadow-float: 0 6px 16px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 20px 25px -12px rgba(12, 92, 168, 0.15);
+
+  /* --- Transitions --- */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-spring: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+
+  /* --- Z-Index Scale --- */
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-modal-backdrop: 900;
+  --z-modal: 950;
+  --z-float: 999;
+  --z-toast: 1000;
+
+  /* --- Container --- */
+  --container-max: 1400px;
+  --container-padding: clamp(1rem, 4vw, 3rem);
+}
+
+/* ----------------------------------------
+   3. CUSTOM FONT FACE — Good Times Rg
+   Defined once here, used everywhere.
+   ---------------------------------------- */
+@font-face {
+  font-family: 'Good Times Rg';
+  src: url('../fonts/good-times-rg.otf') format('opentype'),
+       url('../fonts/good-times-rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----------------------------------------
+   4. TYPOGRAPHY RULES
+   ---------------------------------------- */
+
+/* Brand / heading font: Good Times Rg */
+h1, h2, h3,
+.good-times,
+.zeetech-brand,
+.nav-link {
+  font-family: 'Good Times Rg', 'Poppins', 'Segoe UI', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Body text font: Poppins */
+p, span, div, a, button, input, textarea, select, label {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: var(--font-bold);
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: var(--font-bold);
+  line-height: 1.4;
+  color: var(--color-text);
+}
+
+p {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ----------------------------------------
+   5. UTILITY CLASSES
+   (Minimal — Tailwind handles most utils)
+   ---------------------------------------- */
+
+/* Brand color utilities */
+.bg-zeetech { background-color: var(--color-primary); }
+.text-zeetech { color: var(--color-primary); }
+.border-zeetech { border-color: var(--color-primary); }
+
+/* Section backgrounds */
+.gradient-bg { background: var(--gradient-hero); }
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

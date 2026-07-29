@@ -1,0 +1,45 @@
+/* ========================================
+   POLICY.CSS — Policy Pages Styles
+   Privacy, Terms, Refund — shared styles
+   ======================================== */
+
+/* Policy page hero */
+.policy-hero {
+  background: var(--gradient-hero);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+
+/* Terms-specific overrides */
+.terms-content h2 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.terms-content h3 {
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
+.terms-content p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.terms-content ul {
+  list-style: disc;
+  padding-left: var(--space-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.terms-content ul li {
+  margin-bottom: var(--space-2xs);
+}

@@ -1,0 +1,196 @@
+/* ========================================
+   RESPONSIVE.CSS — Media Query Breakpoints
+   Mobile-first responsive overrides
+   ======================================== */
+
+/* ----------------------------------------
+   BREAKPOINTS:
+   - 320px: Small phones
+   - 480px: Large phones
+   - 640px: Small tablets
+   - 768px: Tablets
+   - 1024px: Small laptops
+   - 1440px: Large desktops
+   ---------------------------------------- */
+
+/* ========================================
+   UP TO 480px — SMALL PHONES
+   ======================================== */
+@media (max-width: 480px) {
+  .offer-container {
+    padding: var(--space-md);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .timer-block {
+    min-width: 55px;
+    padding: 6px 4px;
+  }
+
+  .timer-number {
+    font-size: 1.3rem;
+  }
+
+  .discount-number {
+    font-size: 1.7rem;
+  }
+
+  .support-card {
+    padding: 1.25rem;
+  }
+
+  .feedback-main-btn .feedback-label-text {
+    display: none;
+  }
+
+  .feedback-main-btn {
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+
+/* ========================================
+   UP TO 640px — LARGE PHONES
+   ======================================== */
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .footer-section .footer-links {
+    align-items: center;
+  }
+
+  .footer-contact-item {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .offer-container {
+    padding: var(--space-md);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .timer-block {
+    min-width: 60px;
+    padding: 6px 4px;
+  }
+
+  .timer-number {
+    font-size: 1.3rem;
+  }
+
+  .discount-number {
+    font-size: 1.7rem;
+  }
+}
+
+/* ========================================
+   640px AND UP — SMALL TABLETS
+   ======================================== */
+@media (min-width: 640px) {
+  .feedback-widget {
+    bottom: 28px;
+    left: 28px;
+  }
+
+  .feedback-icon-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .feedback-panel {
+    width: 360px;
+    bottom: 75px;
+  }
+}
+
+/* ========================================
+   UP TO 768px — TABLETS
+   ======================================== */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+/* ========================================
+   768px AND UP — TABLETS+
+   ======================================== */
+@media (min-width: 768px) {
+  .logo-img {
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .footer-logo-img {
+    width: 52px;
+    height: 52px;
+    padding: 8px;
+  }
+
+  .nav-desktop {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+}
+
+/* ========================================
+   1024px AND UP — SMALL LAPTOPS
+   ======================================== */
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+/* ========================================
+   1440px AND UP — LARGE DESKTOPS
+   ======================================== */
+@media (min-width: 1440px) {
+  :root {
+    --text-base: 0.9rem;
+    --text-md: 0.95rem;
+  }
+}
+
+/* ========================================
+   1920px AND UP — ULTRA WIDE
+   ======================================== */
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
+  }
+}

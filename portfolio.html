@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Zeetech | Our Portfolio - Stunning Technical & Interior Projects</title>
+  <meta name="description" content="Explore Zeetech's portfolio of recent projects including kitchen makeovers, washrooms, ceilings, flooring, and stairs in Islamabad & Rawalpindi.">
+  <link rel="canonical" href="https://zeetech26.com/portfolio.html">
+
+  <link rel="icon" type="image/png" href="assets/images/logo/favicon.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/portfolio.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="container-custom">
+      <nav class="navbar">
+        <a href="index.html" class="logo-link" aria-label="Zeetech Home">
+          <img src="assets/images/logo/zeetech-logo.jpeg" alt="Zeetech Logo" class="logo-img" width="60" height="60">
+          <div class="logo-text hidden md:block">ZEETECH<span>Technical Services</span></div>
+        </a>
+        <div class="nav-desktop" id="nav-desktop">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="portfolio.html" class="nav-link active-nav">Portfolio</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </div>
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-mobile-overlay" id="mobile-nav-overlay"></div>
+  <nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation">
+    <div class="nav-mobile-links">
+      <a href="index.html" class="nav-mobile-link">Home</a>
+      <a href="services.html" class="nav-mobile-link">Services</a>
+      <a href="portfolio.html" class="nav-mobile-link active-nav">Portfolio</a>
+      <a href="about.html" class="nav-mobile-link">About</a>
+      <a href="contact.html" class="nav-mobile-link">Contact</a>
+      <a href="support.html" class="nav-mobile-link">Support</a>
+    </div>
+    <div class="nav-mobile-cta">
+      <a href="tel:+923005518622"><i class="fa-solid fa-phone"></i> +92 300 5518622</a>
+      <a href="https://wa.me/923005518622"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="portfolio-hero">
+      <div class="container-custom">
+        <span class="section-badge"><i class="fa-solid fa-images"></i> Our Portfolio</span>
+        <h1>Explore Our Work</h1>
+        <p class="mt-2 text-gray-600 max-w-xl mx-auto">Browse through our meticulously crafted interior and technical projects.</p>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO FILTER & GRID -->
+    <section class="section py-12">
+      <div class="container-custom">
+        
+        <!-- Filters -->
+        <div class="portfolio-filters" id="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="kitchen">Kitchen</button>
+          <button class="filter-btn" data-filter="washroom">Washroom</button>
+          <button class="filter-btn" data-filter="roof">Ceiling & Roof</button>
+          <button class="filter-btn" data-filter="floor">Floor</button>
+          <button class="filter-btn" data-filter="stairs">Stairs</button>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Dynamically populated by portfolio-gallery.js -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12 mb-4" id="load-more-container" style="display: none;">
+          <button id="load-more-btn" class="btn btn-primary" style="padding: 0.75rem 2rem; border-radius: var(--radius-full); font-weight: 600; box-shadow: var(--shadow-md); transition: all 0.3s ease;">
+            Load More <i class="fa-solid fa-chevron-down ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX (HIDDEN BY DEFAULT) -->
+  <div class="lightbox" id="portfolio-lightbox">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <div class="lightbox-content">
+      <img src="" alt="Fullscreen image" id="lightbox-img">
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container-custom">
+      <div class="footer-grid">
+        <!-- Column 1: About -->
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="assets/images/logo/zeetech-logo.jpeg" alt="Zeetech Logo" class="footer-logo-img" width="52"
+              height="52">
+            <span class="footer-logo-text">ZEETECH</span>
+          </div>
+          <p>Professional technical services in Islamabad & Rawalpindi. From AC repair to solar installation — your
+            trusted partner for home & commercial services.</p>
+          <div class="social-icons">
+            <a href="https://facebook.com/zeetechservices" class="social-icon" target="_blank" rel="noopener"
+              aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com/zeetechservices" class="social-icon" target="_blank" rel="noopener"
+              aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@zeetechservices" class="social-icon" target="_blank" rel="noopener"
+              aria-label="TikTok">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Home</a>
+            <a href="services.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Services</a>
+            <a href="portfolio.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Portfolio</a>
+            <a href="about.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+            <a href="contact.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+            <a href="support.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Support</a>
+          </div>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div class="footer-section">
+          <h4>Our Services</h4>
+          <div class="footer-links">
+            <a href="services.html#ac-repair" class="footer-link"><i class="fa-solid fa-chevron-right"></i> AC
+              Repair</a>
+            <a href="services.html#solar-installation" class="footer-link"><i class="fa-solid fa-chevron-right"></i>
+              Solar Installation</a>
+            <a href="services.html#refrigerator-repair" class="footer-link"><i class="fa-solid fa-chevron-right"></i>
+              Fridge Repair</a>
+            <a href="services.html#electrician" class="footer-link"><i class="fa-solid fa-chevron-right"></i>
+              Electrician</a>
+            <a href="services.html#carpentry" class="footer-link"><i class="fa-solid fa-chevron-right"></i>
+              Carpentry</a>
+          </div>
+        </div>
+
+        <!-- Column 4: Contact -->
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+923005518622">+92 300 5518622</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:zeetechservices26@gmail.com">zeetechservices26@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>G-12 Ghazali Road, Islamabad</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon-Sat: 8AM-10PM | Sun: 10AM-6PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2024 Zeetech Technical Services. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-conditions.html">Terms & Conditions</a>
+          <a href="refund-policy.html">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
