@@ -14,6 +14,7 @@ import { initServiceModals } from './modules/service-modal.js';
 import { init3DEffects } from './modules/3d-effects.js';
 import { initPolicyModal } from './modules/policy-modal.js';
 import { initProjects } from './modules/projects-gallery.js';
+import { initReviewsLoader } from './modules/reviews-loader.js';
 
 // Force the browser to start at the top of the page on refresh
 if (history.scrollRestoration) {
@@ -44,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Review/feedback form — only if the feedback widget exists
   if (document.getElementById('feedback-main-btn') || document.getElementById('review-form')) {
     initReviewForm();
+  }
+
+  // Fetch and load reviews dynamically if the reviews swiper wrapper exists
+  if (document.querySelector('.reviews-swiper .swiper-wrapper')) {
+    initReviewsLoader();
   }
 
   // Service modals — only if service detail modal exists

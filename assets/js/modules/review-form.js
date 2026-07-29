@@ -154,22 +154,20 @@ function initReviewSubmit() {
     };
 
     try {
-      // Check if EmailJS is configured
-      if (config.emailjs.publicKey === 'YOUR_PUBLIC_KEY') {
-        // Not configured — show success for demo
-        console.log('Review data (EmailJS not configured):', reviewData);
-        showSuccessMessage(form, feedbackEl);
-        resetButton(submitBtn);
-        return;
+      // Send via PHP API
+      const response = await fetch('/api/reviews.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reviewData)
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Server returned an error');
       }
-
-      // Send via EmailJS
-      await emailjs.send(
-        config.emailjs.serviceId,
-        config.emailjs.reviewTemplateId,
-        reviewData,
-        config.emailjs.publicKey
-      );
 
       showSuccessMessage(form, feedbackEl);
 
