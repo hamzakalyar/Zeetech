@@ -175,31 +175,29 @@ async function handleBookingSubmit(e) {
   };
 
   try {
-    // Check if EmailJS is configured
-    if (config.emailjs.publicKey === 'YOUR_PUBLIC_KEY') {
-      // EmailJS not configured — show success anyway for demo, log data
-      console.log('Booking form data (EmailJS not configured):', formData);
-      showFormFeedback(
-        feedbackEl,
-        '✅ Booking request received! We will contact you shortly to confirm your appointment.',
-        'success'
-      );
-      form.reset();
-      resetButton(submitBtn);
-      return;
+    // Construct the email body
+    const subject = encodeURIComponent(`New Booking Request: ${serviceName}`);
+    let bodyText = `New Booking Request from ${fullName.value.trim()}\n\n`;
+    bodyText += `Service: ${serviceName}\n`;
+    bodyText += `Preferred Date: ${date.value}\n`;
+    bodyText += `Preferred Time: ${time?.value || 'Not specified'}\n\n`;
+    bodyText += `Contact Details:\n`;
+    bodyText += `Phone: ${phone.value.trim()}\n`;
+    bodyText += `Email: ${email.value.trim()}\n`;
+    bodyText += `Address: ${address.value.trim()}\n\n`;
+    if (message?.value?.trim()) {
+      bodyText += `Message:\n${message.value.trim()}\n`;
     }
 
-    // Send via EmailJS
-    await emailjs.send(
-      config.emailjs.serviceId,
-      config.emailjs.bookingTemplateId,
-      formData,
-      config.emailjs.publicKey
-    );
+    const body = encodeURIComponent(bodyText);
+    const mailtoLink = `mailto:zeetechservices26@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open the default email client
+    window.location.href = mailtoLink;
 
     showFormFeedback(
       feedbackEl,
-      '✅ Booking request sent successfully! We will contact you shortly to confirm.',
+      'Opening your email app! Please click send on the generated email to confirm your booking.',
       'success'
     );
     form.reset();
