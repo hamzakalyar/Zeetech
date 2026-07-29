@@ -9,11 +9,11 @@ import { projectsItems } from '../data/projects.js';
 
 export function initProjects() {
   const grid = document.getElementById('projects-grid');
-  const filters = document.getElementById('projects-filters');
-  const lightbox = document.getElementById('projects-lightbox');
+  const filters = document.getElementById('portfolio-filters');
+  const lightbox = document.getElementById('portfolio-lightbox');
   const loadMoreBtn = document.getElementById('load-more-btn');
   const loadMoreContainer = document.getElementById('load-more-container');
-  
+
   if (!grid || !filters || !lightbox) return;
 
   const lightboxImg = document.getElementById('lightbox-img');
@@ -35,13 +35,13 @@ export function initProjects() {
       btn.classList.add('active');
 
       const filterValue = btn.dataset.filter;
-      
+
       if (filterValue === 'all') {
         currentCategoryItems = projectsItems;
       } else {
         currentCategoryItems = projectsItems.filter(item => item.category === filterValue);
       }
-      
+
       resetAndLoad();
     });
   });
@@ -67,7 +67,7 @@ export function initProjects() {
   function resetAndLoad() {
     grid.innerHTML = '';
     currentLoaded = 0;
-    
+
     if (currentCategoryItems.length === 0) {
       grid.innerHTML = '<p class="text-center text-gray-500 py-8" style="column-span: all;">No projects found in this category.</p>';
       loadMoreContainer.style.display = 'none';
@@ -86,17 +86,17 @@ export function initProjects() {
       const div = document.createElement('div');
       div.className = `projects-item fade-in-up`;
       div.dataset.category = item.category;
-      
+
       const img = document.createElement('img');
       img.src = item.src;
       img.alt = item.alt;
       img.loading = 'lazy';
 
       div.appendChild(img);
-      
+
       // Click to open lightbox
       div.addEventListener('click', () => openLightbox(item.src));
-      
+
       fragment.appendChild(div);
     }
 

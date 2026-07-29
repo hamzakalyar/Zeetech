@@ -78,7 +78,7 @@ export const config = {
   // ========================================
   emailjs: {
     publicKey: 'YOUR_PUBLIC_KEY',               // <-- PASTE YOUR PUBLIC KEY
-    serviceId: 'YOUR_SERVICE_ID',               // <-- PASTE YOUR SERVICE ID
+    serviceId: 'service_jakvbme',               // <-- PASTE YOUR SERVICE ID
     bookingTemplateId: 'YOUR_BOOKING_TEMPLATE', // <-- PASTE BOOKING TEMPLATE ID
     reviewTemplateId: 'YOUR_REVIEW_TEMPLATE',   // <-- PASTE REVIEW TEMPLATE ID
     contactTemplateId: 'YOUR_CONTACT_TEMPLATE'  // <-- PASTE CONTACT TEMPLATE ID

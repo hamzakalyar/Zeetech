@@ -154,19 +154,22 @@ function initReviewSubmit() {
     };
 
     try {
-      // Construct the email body
-      const subject = encodeURIComponent(`New Customer Review from ${nameInput.value.trim()}`);
-      let bodyText = `New Customer Review\n\n`;
-      bodyText += `Name: ${nameInput.value.trim()}\n`;
-      bodyText += `Rating: ${selectedRating} Stars\n`;
-      bodyText += `Review:\n${reviewInput.value.trim()}\n\n`;
-      bodyText += `Submitted at: ${new Date().toLocaleString()}\n`;
+      // Check if EmailJS is configured
+      if (config.emailjs.publicKey === 'YOUR_PUBLIC_KEY') {
+        // Not configured — show success for demo
+        console.log('Review data (EmailJS not configured):', reviewData);
+        showSuccessMessage(form, feedbackEl);
+        resetButton(submitBtn);
+        return;
+      }
 
-      const body = encodeURIComponent(bodyText);
-      const mailtoLink = `mailto:zeetechservices26@gmail.com?subject=${subject}&body=${body}`;
-
-      // Open the default email client
-      window.location.href = mailtoLink;
+      // Send via EmailJS
+      await emailjs.send(
+        config.emailjs.serviceId,
+        config.emailjs.reviewTemplateId,
+        reviewData,
+        config.emailjs.publicKey
+      );
 
       showSuccessMessage(form, feedbackEl);
 
