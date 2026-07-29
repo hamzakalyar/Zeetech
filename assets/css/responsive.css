@@ -58,15 +58,6 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
-    text-align: center;
-  }
-
-  .footer-section .footer-links {
-    align-items: center;
-  }
-
-  .footer-contact-item {
-    justify-content: center;
   }
 
   .footer-bottom {
@@ -75,10 +66,6 @@
   }
 
   .footer-bottom-links {
-    justify-content: center;
-  }
-
-  .social-icons {
     justify-content: center;
   }
 
@@ -130,7 +117,7 @@
 /* ========================================
    UP TO 768px — TABLETS
    ======================================== */
-@media (max-width: 768px) {
+@media (min-width: 641px) and (max-width: 768px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
