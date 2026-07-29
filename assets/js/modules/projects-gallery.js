@@ -9,8 +9,8 @@ import { projectsItems } from '../data/projects.js';
 
 export function initProjects() {
   const grid = document.getElementById('projects-grid');
-  const filters = document.getElementById('portfolio-filters');
-  const lightbox = document.getElementById('portfolio-lightbox');
+  const filters = document.getElementById('projects-filters');
+  const lightbox = document.getElementById('projects-lightbox');
   const loadMoreBtn = document.getElementById('load-more-btn');
   const loadMoreContainer = document.getElementById('load-more-container');
   
