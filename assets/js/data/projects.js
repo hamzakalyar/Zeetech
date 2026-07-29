@@ -2,7 +2,7 @@
  * portfolio.js
  * Auto-generated list of all portfolio images.
  */
-export const portfolioItems = [
+export const projectsItems = [
   {
     "category": "floor",
     "src": "assets/images/portfolio/floor/WhatsApp Image 2026-07-10 at 17.32.26 (1).jpeg",

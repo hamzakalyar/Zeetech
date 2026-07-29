@@ -13,7 +13,7 @@ import { initReviewForm } from './modules/review-form.js';
 import { initServiceModals } from './modules/service-modal.js';
 import { init3DEffects } from './modules/3d-effects.js';
 import { initPolicyModal } from './modules/policy-modal.js';
-import { initPortfolio } from './modules/portfolio-gallery.js';
+import { initProjects } from './modules/projects-gallery.js';
 
 // Force the browser to start at the top of the page on refresh
 if (history.scrollRestoration) {
@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initPolicyModal();
 
   // Initialize Portfolio Gallery
-  if (document.getElementById('portfolio-grid')) {
-    initPortfolio();
+  if (document.getElementById('projects-grid')) {
+    initProjects();
   }
 
   // Lazy load images

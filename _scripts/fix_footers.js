@@ -14,11 +14,11 @@ for (const file of files) {
     const quickLinksEnd = content.indexOf('</div></div>', quickLinksStart);
     if (quickLinksEnd !== -1) {
       const quickLinksBlock = content.substring(quickLinksStart, quickLinksEnd);
-      if (!quickLinksBlock.includes('portfolio.html')) {
+      if (!quickLinksBlock.includes('projects.html')) {
         // Inject before about.html
         const aboutLinkRegex = /<a href="about.html" class="footer-link">\s*<i class="fa-solid fa-chevron-right"><\/i>\s*About( Us)?\s*<\/a>/;
         content = content.replace(aboutLinkRegex, (match) => {
-          return `<a href="portfolio.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Portfolio</a>` + match;
+          return `<a href="projects.html" class="footer-link"><i class="fa-solid fa-chevron-right"></i> Projects</a>` + match;
         });
         fs.writeFileSync(file, content);
         console.log(`Updated ${file}`);

@@ -2,13 +2,13 @@
    PORTFOLIO.CSS - Gallery & Lightbox Styles
    ======================================== */
 
-.portfolio-hero {
+.projects-hero {
   background: var(--gradient-hero);
   padding: var(--space-2xl) 0;
   text-align: center;
 }
 
-.portfolio-filters {
+.projects-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -49,25 +49,25 @@
 }
 
 /* CSS Columns for Masonry Layout */
-.portfolio-grid {
+.projects-grid {
   column-count: 1;
   column-gap: var(--space-md);
 }
 
 @media (min-width: 640px) {
-  .portfolio-grid {
+  .projects-grid {
     column-count: 2;
   }
 }
 
 @media (min-width: 1024px) {
-  .portfolio-grid {
+  .projects-grid {
     column-count: 3;
     column-gap: var(--space-lg);
   }
 }
 
-.portfolio-item {
+.projects-item {
   break-inside: avoid;
   margin-bottom: var(--space-md);
   border-radius: var(--radius-lg);
@@ -80,24 +80,24 @@
 }
 
 @media (min-width: 1024px) {
-  .portfolio-item {
+  .projects-item {
     margin-bottom: var(--space-lg);
   }
 }
 
-.portfolio-item img {
+.projects-item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.5s ease;
 }
 
-.portfolio-item:hover {
+.projects-item:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
 }
 
-.portfolio-item:hover img {
+.projects-item:hover img {
   transform: scale(1.05);
 }
 

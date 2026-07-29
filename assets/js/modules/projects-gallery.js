@@ -5,10 +5,10 @@
  * pagination (load more), and the fullscreen lightbox feature.
  */
 
-import { portfolioItems } from '../data/portfolio.js';
+import { projectsItems } from '../data/projects.js';
 
 export function initPortfolio() {
-  const grid = document.getElementById('portfolio-grid');
+  const grid = document.getElementById('projects-grid');
   const filters = document.getElementById('portfolio-filters');
   const lightbox = document.getElementById('portfolio-lightbox');
   const loadMoreBtn = document.getElementById('load-more-btn');
@@ -19,7 +19,7 @@ export function initPortfolio() {
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
-  let currentCategoryItems = portfolioItems;
+  let currentCategoryItems = projectsItems;
   let itemsToShow = 15; // Initial load amount
   let currentLoaded = 0;
 
@@ -37,9 +37,9 @@ export function initPortfolio() {
       const filterValue = btn.dataset.filter;
       
       if (filterValue === 'all') {
-        currentCategoryItems = portfolioItems;
+        currentCategoryItems = projectsItems;
       } else {
-        currentCategoryItems = portfolioItems.filter(item => item.category === filterValue);
+        currentCategoryItems = projectsItems.filter(item => item.category === filterValue);
       }
       
       resetAndLoad();
@@ -84,7 +84,7 @@ export function initPortfolio() {
     for (let i = currentLoaded; i < end; i++) {
       const item = currentCategoryItems[i];
       const div = document.createElement('div');
-      div.className = `portfolio-item fade-in-up`;
+      div.className = `projects-item fade-in-up`;
       div.dataset.category = item.category;
       
       const img = document.createElement('img');
