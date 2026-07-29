@@ -21,7 +21,7 @@ export const config = {
   // ========================================
   businessName: 'Zeetech Technical Services',
   tagline: 'Professional Technical Services',
-  
+
   // ========================================
   // CONTACT DETAILS
   // Change these to update contact info sitewide
@@ -32,7 +32,7 @@ export const config = {
   email: 'zeetechservices26@gmail.com',
   address: 'G-12 Ghazali Road, Islamabad',
   addressFull: 'G-12 Ghazali Road, Islamabad, Pakistan',
-  
+
   // ========================================
   // BUSINESS HOURS
   // ========================================
@@ -55,7 +55,7 @@ export const config = {
   // ========================================
   googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.0!2d73.0479!3d33.6844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sG-12+Islamabad!5e0!3m2!1sen!2spk',
   googleMapsLink: 'https://maps.google.com/?q=G-12+Ghazali+Road+Islamabad+Pakistan',
-  
+
   // ========================================
   // SOCIAL MEDIA LINKS
   // ========================================
@@ -77,9 +77,9 @@ export const config = {
   // 4. Copy your Service ID, Template IDs, and Public Key below
   // ========================================
   emailjs: {
-    publicKey: 'RnyJQ1uQV2WCOLu7Q',               // <-- PASTE YOUR PUBLIC KEY
-    serviceId: 'service_jakvbme',               // <-- PASTE YOUR SERVICE ID
-    bookingTemplateId: 'template_l7le118', // <-- PASTE BOOKING TEMPLATE ID
+    publicKey: 'yWrJJGQ_3XZYwPLmC',               // <-- PASTE YOUR PUBLIC KEY
+    serviceId: 'service_qw37s49',               // <-- PASTE YOUR SERVICE ID
+    bookingTemplateId: 'template_dgm4nd9', // <-- PASTE BOOKING TEMPLATE ID
     reviewTemplateId: 'YOUR_REVIEW_TEMPLATE',   // <-- PASTE REVIEW TEMPLATE ID
     contactTemplateId: 'YOUR_CONTACT_TEMPLATE'  // <-- PASTE CONTACT TEMPLATE ID
   },
