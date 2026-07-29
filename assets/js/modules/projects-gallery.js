@@ -7,7 +7,7 @@
 
 import { projectsItems } from '../data/projects.js';
 
-export function initPortfolio() {
+export function initProjects() {
   const grid = document.getElementById('projects-grid');
   const filters = document.getElementById('portfolio-filters');
   const lightbox = document.getElementById('portfolio-lightbox');
