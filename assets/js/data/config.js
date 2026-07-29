@@ -77,9 +77,9 @@ export const config = {
   // 4. Copy your Service ID, Template IDs, and Public Key below
   // ========================================
   emailjs: {
-    publicKey: 'YOUR_PUBLIC_KEY',               // <-- PASTE YOUR PUBLIC KEY
+    publicKey: 'RnyJQ1uQV2WCOLu7Q',               // <-- PASTE YOUR PUBLIC KEY
     serviceId: 'service_jakvbme',               // <-- PASTE YOUR SERVICE ID
-    bookingTemplateId: 'YOUR_BOOKING_TEMPLATE', // <-- PASTE BOOKING TEMPLATE ID
+    bookingTemplateId: 'template_l7le118', // <-- PASTE BOOKING TEMPLATE ID
     reviewTemplateId: 'YOUR_REVIEW_TEMPLATE',   // <-- PASTE REVIEW TEMPLATE ID
     contactTemplateId: 'YOUR_CONTACT_TEMPLATE'  // <-- PASTE CONTACT TEMPLATE ID
   },
