@@ -102,6 +102,11 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.emergency-contacts a[href^="tel:"] {
+  background: var(--color-white);
+  color: var(--color-primary);
+}
+
 .emergency-contacts a:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
