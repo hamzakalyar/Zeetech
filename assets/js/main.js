@@ -15,6 +15,7 @@ import { initServiceModals } from './modules/service-modal.js';
 import { init3DEffects } from './modules/3d-effects.js';
 import { initPolicyModal } from './modules/policy-modal.js';
 import { initProjects } from './modules/projects-gallery.js';
+import { loadReviews } from './modules/reviews-loader.js';
 
 // Force the browser to start at the top of the page on refresh
 if (history.scrollRestoration) {
@@ -76,6 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Portfolio Gallery
   if (document.getElementById('projects-grid')) {
     initProjects();
+  }
+  
+  // Load Dynamic Reviews
+  if (document.getElementById('reviews-container')) {
+    loadReviews().then(() => {
+      // Re-init swiper if it was already initialized
+      // (The global swiper init handles it if we call it after, or if swiper has observer: true)
+    });
   }
 
   // Lazy load images
