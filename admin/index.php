@@ -152,9 +152,22 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
                 <?php if ($totalImages === 0): ?>
                     <p class="text-gray-500 text-center py-8">No images found. Upload some to get started!</p>
                 <?php else: ?>
+                    
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2 mb-6 border-b pb-4">
+                        <button class="filter-btn bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold transition" data-filter="all">All</button>
+                        <?php foreach ($imagesByCategory as $categoryName => $images): ?>
+                            <?php if (count($images) > 0): ?>
+                                <button class="filter-btn bg-gray-200 text-gray-700 hover:bg-gray-300 px-4 py-1 rounded-full text-sm font-semibold transition" data-filter="<?php echo $categoryName; ?>">
+                                    <?php echo ucfirst($categoryName); ?>
+                                </button>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+
                     <?php foreach ($imagesByCategory as $categoryName => $images): ?>
                         <?php if (count($images) > 0): ?>
-                            <div class="mb-8">
+                            <div class="mb-8 category-group" data-category="<?php echo $categoryName; ?>">
                                 <h4 class="text-md font-bold text-gray-700 mb-3 uppercase tracking-wide border-b border-gray-200 pb-1">
                                     <i class="fa-solid fa-folder-open text-blue-500 mr-2"></i> <?php echo ucfirst($categoryName); ?> (<?php echo count($images); ?>)
                                 </h4>
@@ -207,5 +220,34 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
     </div>
 <?php endif; ?>
 
+<script>
+// Category Filter Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoryGroups = document.querySelectorAll('.category-group');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active styling
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-blue-600', 'text-white');
+                b.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            btn.classList.remove('bg-gray-200', 'text-gray-700');
+            btn.classList.add('bg-blue-600', 'text-white');
+
+            // Filter groups
+            const filterValue = btn.dataset.filter;
+            categoryGroups.forEach(group => {
+                if (filterValue === 'all' || group.dataset.category === filterValue) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
 </body>
 </html>
