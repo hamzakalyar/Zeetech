@@ -194,7 +194,7 @@ function initReviewSubmit() {
 function showSuccessMessage(form, feedbackEl) {
   showFormFeedback(
     feedbackEl,
-    '⭐ Thank you for your review! It has been submitted and is pending admin approval. Your feedback helps us improve!',
+    '⭐ Thank you! Your review has been submitted successfully.',
     'success'
   );
   form.reset();
