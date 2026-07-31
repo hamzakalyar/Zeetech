@@ -5,9 +5,7 @@
  * pagination (load more), and the fullscreen lightbox feature.
  */
 
-import { projectsItems } from '../data/projects.js';
-
-export function initProjects() {
+export async function initProjects() {
   const grid = document.getElementById('projects-grid');
   const filters = document.getElementById('projects-filters');
   const lightbox = document.getElementById('projects-lightbox');
@@ -19,9 +17,21 @@ export function initProjects() {
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
 
-  let currentCategoryItems = projectsItems;
+  let projectsItems = [];
+  let currentCategoryItems = [];
   let itemsToShow = 15; // Initial load amount
   let currentLoaded = 0;
+
+  try {
+    const res = await fetch('api/projects.php');
+    const result = await res.json();
+    if (result.status === 'success') {
+      projectsItems = result.data;
+      currentCategoryItems = projectsItems;
+    }
+  } catch (err) {
+    console.error('Failed to load projects from API:', err);
+  }
 
   // Render initial batch
   resetAndLoad();
