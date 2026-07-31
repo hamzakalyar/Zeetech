@@ -164,12 +164,33 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
                                             <!-- Image Preview -->
                                             <img src="../<?php echo $img['public_path']; ?>" alt="Project" class="w-full h-32 object-cover">
                                             
-                                            <!-- Delete Overlay -->
-                                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
-                                                <form action="actions.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this image?');">
+                                            <!-- Overlay Actions -->
+                                            <div class="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200 p-2">
+                                                
+                                                <!-- Move Category -->
+                                                <form action="actions.php" method="POST" class="w-full mb-2">
+                                                    <input type="hidden" name="action" value="move">
+                                                    <input type="hidden" name="file_path" value="<?php echo $img['path']; ?>">
+                                                    <div class="flex">
+                                                        <select name="new_category" class="text-xs px-1 py-1 rounded-l w-full bg-white text-gray-800" required>
+                                                            <option value="" disabled selected>Move to...</option>
+                                                            <?php foreach ($categories as $c): ?>
+                                                                <?php if ($c !== $categoryName): ?>
+                                                                    <option value="<?php echo $c; ?>"><?php echo ucfirst($c); ?></option>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-2 py-1 rounded-r shadow">
+                                                            Go
+                                                        </button>
+                                                    </div>
+                                                </form>
+
+                                                <!-- Delete -->
+                                                <form action="actions.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this image?');" class="w-full">
                                                     <input type="hidden" name="action" value="delete">
                                                     <input type="hidden" name="file_path" value="<?php echo $img['path']; ?>">
-                                                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow">
+                                                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow text-sm">
                                                         <i class="fa-solid fa-trash-can"></i> Delete
                                                     </button>
                                                 </form>

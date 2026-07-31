@@ -66,6 +66,42 @@ if ($action === 'upload') {
         exit();
     }
 } 
+elseif ($action === 'move') {
+    $filePath = $_POST['file_path'] ?? '';
+    $newCategory = $_POST['new_category'] ?? '';
+    
+    $allowedCategories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
+    if (!in_array($newCategory, $allowedCategories)) {
+        header("Location: index.php?err=Invalid target category.");
+        exit();
+    }
+
+    if (strpos($filePath, '..') === false || strpos($filePath, UPLOAD_DIR) !== 0) {
+        header("Location: index.php?err=Invalid file path.");
+        exit();
+    }
+    
+    if (file_exists($filePath)) {
+        $fileName = basename($filePath);
+        $newPath = UPLOAD_DIR . $newCategory . '/' . $fileName;
+        
+        // Create directory if it doesn't exist
+        if (!is_dir(UPLOAD_DIR . $newCategory)) {
+            mkdir(UPLOAD_DIR . $newCategory, 0755, true);
+        }
+
+        if (rename($filePath, $newPath)) {
+            header("Location: index.php?msg=Image moved to " . ucfirst($newCategory) . " successfully!");
+            exit();
+        } else {
+            header("Location: index.php?err=Failed to move file. Check permissions.");
+            exit();
+        }
+    } else {
+        header("Location: index.php?err=File not found.");
+        exit();
+    }
+}
 elseif ($action === 'delete') {
     $filePath = $_POST['file_path'] ?? '';
     
