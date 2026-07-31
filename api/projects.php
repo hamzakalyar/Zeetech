@@ -32,16 +32,17 @@ foreach ($allowedCategories as $category) {
                     'category' => $category,
                     'src' => $publicPath,
                     'alt' => $category . ' project by Zeetech',
-                    'filename' => basename($file)
+                    'filename' => basename($file),
+                    'timestamp' => filemtime($file)
                 ];
             }
         }
     }
 }
 
-// Sort by filename (optional, gives a consistent order)
+// Sort by timestamp (newest first)
 usort($projects, function($a, $b) {
-    return strcmp($b['filename'], $a['filename']); // reverse alphabetical (newest usually first if timestamped)
+    return $b['timestamp'] - $a['timestamp'];
 });
 
 echo json_encode([

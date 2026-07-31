@@ -137,9 +137,14 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
                             $imagesByCategory[$cat][] = [
                                 'filename' => basename($file),
                                 'path' => $file,
-                                'public_path' => str_replace('../', '', $file) // relative to root for viewing
+                                'public_path' => str_replace('../', '', $file), // relative to root for viewing
+                                'timestamp' => filemtime($file)
                             ];
                         }
+                        // Sort by timestamp (newest first)
+                        usort($imagesByCategory[$cat], function($a, $b) {
+                            return $b['timestamp'] - $a['timestamp'];
+                        });
                     }
                 }
                 
