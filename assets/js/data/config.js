@@ -81,7 +81,7 @@ export const config = {
     serviceId: 'service_qw37s49',               // <-- PASTE YOUR SERVICE ID
     bookingTemplateId: 'template_dgm4nd9', // <-- PASTE BOOKING TEMPLATE ID
     reviewTemplateId: 'YOUR_REVIEW_TEMPLATE',   // <-- PASTE REVIEW TEMPLATE ID
-    contactTemplateId: 'YOUR_CONTACT_TEMPLATE'  // <-- PASTE CONTACT TEMPLATE ID
+    contactTemplateId: 'template_yamm9bd'  // <-- PASTE CONTACT TEMPLATE ID
   },
 
   // ========================================
