@@ -6,8 +6,8 @@
  */
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'YOUR_DATABASE_NAME');
-define('DB_USER', 'YOUR_DATABASE_USERNAME');
+define('DB_NAME', 'alfaeprp_Zeetech_Reviews');
+define('DB_USER', 'alfaeprp_Zeetech_Reviews');
 define('DB_PASS', 'YOUR_DATABASE_PASSWORD');
 
 function getDBConnection() {
