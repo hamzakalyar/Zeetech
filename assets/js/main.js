@@ -10,11 +10,11 @@ import { initNavigation } from './modules/nav-menu.js';
 import { initCountdownTimer } from './modules/countdown-timer.js';
 import { initBookingForm } from './modules/booking-form.js';
 import { initReviewForm } from './modules/review-form.js';
+import { initContactForm } from './modules/contact-form.js';
 import { initServiceModals } from './modules/service-modal.js';
 import { init3DEffects } from './modules/3d-effects.js';
 import { initPolicyModal } from './modules/policy-modal.js';
 import { initProjects } from './modules/projects-gallery.js';
-import { initReviewsLoader } from './modules/reviews-loader.js';
 
 // Force the browser to start at the top of the page on refresh
 if (history.scrollRestoration) {
@@ -42,14 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initBookingForm();
   }
 
+  // Contact form - only if the contact form exists
+  if (document.getElementById('contact-form')) {
+    initContactForm();
+  }
+
   // Review/feedback form — only if the feedback widget exists
   if (document.getElementById('feedback-main-btn') || document.getElementById('review-form')) {
     initReviewForm();
-  }
-
-  // Fetch and load reviews dynamically if the reviews swiper wrapper exists
-  if (document.querySelector('.reviews-swiper .swiper-wrapper')) {
-    initReviewsLoader();
   }
 
   // Service modals — only if service detail modal exists
