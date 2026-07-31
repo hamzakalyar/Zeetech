@@ -127,14 +127,14 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
                 
                 <?php
                 // Fetch current images
-                $images = [];
+                $imagesByCategory = [];
                 foreach ($categories as $cat) {
+                    $imagesByCategory[$cat] = [];
                     $dir = UPLOAD_DIR . $cat;
                     if (is_dir($dir)) {
                         $files = glob($dir . '/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', GLOB_BRACE);
                         foreach ($files as $file) {
-                            $images[] = [
-                                'category' => $cat,
+                            $imagesByCategory[$cat][] = [
                                 'filename' => basename($file),
                                 'path' => $file,
                                 'public_path' => str_replace('../', '', $file) // relative to root for viewing
@@ -142,35 +142,44 @@ $categories = ['floor', 'kitchen', 'roof', 'stairs', 'washroom'];
                         }
                     }
                 }
+                
+                $totalImages = 0;
+                foreach ($imagesByCategory as $cat => $imgs) {
+                    $totalImages += count($imgs);
+                }
                 ?>
                 
-                <?php if (count($images) === 0): ?>
+                <?php if ($totalImages === 0): ?>
                     <p class="text-gray-500 text-center py-8">No images found. Upload some to get started!</p>
                 <?php else: ?>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        <?php foreach ($images as $img): ?>
-                            <div class="relative group rounded-lg overflow-hidden border">
-                                <!-- Image Preview -->
-                                <img src="../<?php echo $img['public_path']; ?>" alt="Project" class="w-full h-32 object-cover">
-                                
-                                <!-- Category Badge -->
-                                <span class="absolute top-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
-                                    <?php echo ucfirst($img['category']); ?>
-                                </span>
-                                
-                                <!-- Delete Overlay -->
-                                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
-                                    <form action="actions.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this image?');">
-                                        <input type="hidden" name="action" value="delete">
-                                        <input type="hidden" name="file_path" value="<?php echo $img['path']; ?>">
-                                        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow">
-                                            <i class="fa-solid fa-trash-can"></i> Delete
-                                        </button>
-                                    </form>
+                    <?php foreach ($imagesByCategory as $categoryName => $images): ?>
+                        <?php if (count($images) > 0): ?>
+                            <div class="mb-8">
+                                <h4 class="text-md font-bold text-gray-700 mb-3 uppercase tracking-wide border-b border-gray-200 pb-1">
+                                    <i class="fa-solid fa-folder-open text-blue-500 mr-2"></i> <?php echo ucfirst($categoryName); ?> (<?php echo count($images); ?>)
+                                </h4>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                                    <?php foreach ($images as $img): ?>
+                                        <div class="relative group rounded-lg overflow-hidden border">
+                                            <!-- Image Preview -->
+                                            <img src="../<?php echo $img['public_path']; ?>" alt="Project" class="w-full h-32 object-cover">
+                                            
+                                            <!-- Delete Overlay -->
+                                            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-200">
+                                                <form action="actions.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this image?');">
+                                                    <input type="hidden" name="action" value="delete">
+                                                    <input type="hidden" name="file_path" value="<?php echo $img['path']; ?>">
+                                                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 rounded shadow">
+                                                        <i class="fa-solid fa-trash-can"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
-                    </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 <?php endif; ?>
             </div>
         </div>
